@@ -1,0 +1,40 @@
+
+<div class="contact-clean">
+    <form (submit)="guardar()"  [formGroup]="articulofrm">
+        <h2 class="text-center">Cargar Artículos</h2>
+        <div class="form-group">
+          <label for="CodigoCn" class="form-label mt-4">Codigo CN</label>
+
+          <input class="form-control" type="text" name="CodigoCn" formControlName="CodigoCn"  placeholder="Codigo CN"/>
+        </div>
+        <div class="form-group">
+          <label for="Descripcion" class="form-label mt-4">Descripcion</label>
+
+          <input class="form-control is-invalid" type="text" name="Descripcion" formControlName="Descripcion"  placeholder="Descripcion de l Articulo"/>
+
+        </div>
+        <div class="form-group">
+          <label for="Precio" class="form-label mt-4">Precio</label>
+
+          <input class="form-control is-invalid" type="text" name="Precio" formControlName="Precio"  placeholder="Precio"/>
+
+        </div>
+        <div class="form-group">
+          <label for="Imagen" class="form-label mt-4">Imagen</label>
+
+          <input class="form-control is-invalid" type="text" name="Imagen" formControlName="Imagen"  placeholder="Url Imagen"/>
+
+        </div>
+        <div class="form-group">
+          <label for="Image" class="form-label mt-4">Stock</label>
+
+          <input class="form-control is-invalid" type="text" name="Stock" formControlName="Stock"  placeholder="0"/>
+
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary" type="submit">Guardar
+            </button>
+        </div>
+    </form>
+</div>
+
