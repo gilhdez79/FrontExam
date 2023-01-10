@@ -3,6 +3,7 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 import { Articulo } from 'src/app/models/Articulo';
 import { ServDatosService } from 'src/app/servicios/serv-datos.service';
 
+
 @Component({
   selector: 'app-articulos',
   templateUrl: './articulos.component.html',
@@ -19,7 +20,8 @@ export class ArticulosComponent implements OnInit {
     Stock: 0
 
   }
-  constructor(private fb: FormBuilder, private dataService: ServDatosService) {
+  constructor(private fb: FormBuilder, private dataService: ServDatosService
+    ) {
 
   }
 
@@ -50,7 +52,9 @@ export class ArticulosComponent implements OnInit {
 
     if (this.articulofrm.valid) {
       this.dataService.postArticulo(this.articuloItem).subscribe(
-        result => console.log('success', result),
+        result => {console.log('success', result);
+
+      },
         error=> console.log('error: ', error)
 
       )

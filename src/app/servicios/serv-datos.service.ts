@@ -15,16 +15,18 @@ export class ServDatosService {
    }
 
    postArticulo(articulo: Articulo ): Observable<any>{
-    const httpOptions : any    = {
+    let httpOptions : any    = {
       headers: new HttpHeaders({
-       'Content-Type':  'application/json',
-        'Access-Control-Allow-Headers': 'Content-Type',
-        'Access-Control-Allow-Methods': 'POST',
-        'Access-Control-Allow-Origin': '*'
+        'Content-Type': 'application/json',
+                              'Access-Control-Allow-Origin': '*',
+                              'Access-Control-Allow-Methods': 'POST'
       })
     };
 
-    return this.http.post(apiSettings.URLAPI + apiSettings.CTRARTICULO, JSON.stringify(articulo));
+
+
+
+    return this.http.post(apiSettings.URLAPI + apiSettings.CTRARTICULO, JSON.stringify(articulo), httpOptions);
   }
 
   putArticulo(empleado: Articulo ): Observable<any>{
@@ -37,7 +39,7 @@ export class ServDatosService {
       })
     };
 
-    return this.http.put(apiSettings.URLAPI + apiSettings.CTRARTICULO,  httpOptions);
+    return this.http.put(apiSettings.URLAPI + apiSettings.CTRARTICULO, httpOptions);
   }
 
   deleteArticulo(empleado: Articulo ): Observable<any>{
