@@ -6,11 +6,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ArticulosComponent } from './components/articulos/articulos.component';
 import { HttpClientModule } from '@angular/common/http';
+import { TiendasComponent } from './components/tiendas/tiendas.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ArticulosComponent
+    ArticulosComponent,
+    TiendasComponent
   ],
   imports: [
     FormsModule,

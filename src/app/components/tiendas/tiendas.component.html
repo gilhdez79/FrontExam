@@ -1,0 +1,20 @@
+<div class="contact-clean">
+  <form (submit)="guardar()"  [formGroup]="tiendafrm">
+      <h2 class="text-center">Cargar Artículos</h2>
+      <div class="form-group">
+        <label for="Sucursal" class="form-label mt-4">Sucursal</label>
+        <input class="form-control" type="text" name="Sucursal" formControlName="Sucursal"  placeholder="Sucursal"/>
+      </div>
+      <div class="form-group">
+        <label for="Direccion" class="form-label mt-4">Dirección</label>
+
+        <input class="form-control is-invalid" type="text" name="Direccion" formControlName="Direccion"  placeholder="Direccion"/>
+
+      </div>
+
+      <div class="form-group">
+          <button class="btn btn-primary" type="submit">Guardar
+          </button>
+      </div>
+  </form>
+</div>

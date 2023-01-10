@@ -60,7 +60,5 @@ export class ArticulosComponent implements OnInit {
       )
      console.log('Guardado.....');
     }
-
-
   }
 }

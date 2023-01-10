@@ -3,6 +3,7 @@ import { Observable, of } from 'rxjs';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import { Articulo } from '../models/Articulo';
 import { apiSettings } from '../core/appsettins';
+import { Tienda } from '../models/Tienda';
 
 
 @Injectable({
@@ -22,9 +23,6 @@ export class ServDatosService {
                               'Access-Control-Allow-Methods': 'POST'
       })
     };
-
-
-
 
     return this.http.post(apiSettings.URLAPI + apiSettings.CTRARTICULO, JSON.stringify(articulo), httpOptions);
   }
@@ -66,4 +64,19 @@ export class ServDatosService {
 
     return this.http.delete(apiSettings.URLAPI + apiSettings.CTRARTICULO);
   }
+
+
+  postTienda(tienda: Tienda ): Observable<any>{
+    let httpOptions : any    = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+                              'Access-Control-Allow-Origin': '*',
+                              'Access-Control-Allow-Methods': 'POST'
+      })
+    };
+
+    return this.http.post(apiSettings.URLAPI + apiSettings.CTRTIENDA, tienda, httpOptions);
+  }
 }
+
+
