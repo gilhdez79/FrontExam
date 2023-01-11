@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { catchError, Observable, of, retry, throwError } from 'rxjs';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
-import { Articulo } from '../models/Articulo';
+import { Articulo, ArticuloRespose } from '../models/Articulo';
 import { apiSettings } from '../core/appsettins';
 import { Tienda } from '../models/Tienda';
+import {from, map, tap, take} from 'rxjs';
 
 
 @Injectable({
@@ -62,9 +63,33 @@ export class ServDatosService {
       })
     };
 
-    return this.http.delete(apiSettings.URLAPI + apiSettings.CTRARTICULO);
+    return this.http.get(apiSettings.URLAPI + apiSettings.CTRARTICULO,httpOptions);
   }
+  geAlltArticulo(): Observable<ArticuloRespose[]>{
+    const httpOptions : any    = {
+      headers: new HttpHeaders({
+        //'Content-Type':  'application/json',
+        'Access-Control-Allow-Headers': 'Content-Type',
+        'Access-Control-Allow-Methods': 'GET',
+        'Access-Control-Allow-Origin': '*'
+      })
+    };
 
+    return this.http.get(apiSettings.URLAPI + apiSettings.CTRARTICULO, httpOptions)
+    .pipe(
+      map((data:any)=>{
+        return data;
+        console.log('resultado consulta');
+
+        console.log(data);
+
+      }),
+      catchError(error=>{
+        return throwError('Capital');
+      })
+
+    );
+  }
 
   postTienda(tienda: Tienda ): Observable<any>{
     let httpOptions : any    = {
