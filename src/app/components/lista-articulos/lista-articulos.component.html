@@ -34,10 +34,10 @@
       <td>{{itemArticulo.precio | currency}}</td>
       <td>{{itemArticulo.stock}}</td>
       <td>
-        <button type="button" class="btn btn-link btn-sm btn-rounded">
+        <button type="button" (click)="openDialog(itemArticulo)" class="btn btn-link btn-sm btn-rounded">
           Actualizar
         </button>
-        <button type="button" (click)="openDialog(itemArticulo)" class="btn btn-link btn-sm btn-rounded">
+        <button type="button" (click)="elimnarArticulo(itemArticulo)"  class="btn btn-link btn-sm btn-rounded">
           Eliminar
         </button>
       </td>

@@ -44,4 +44,23 @@ export class ListaArticulosComponent implements OnInit {
       //this.animal = result;
     });
   }
+
+  elimnarArticulo(item:ArticuloRespose){
+
+    let ItemArticulo: Articulo = {
+      id:  item.id,
+      CodigoCn: item.codigoCn,
+      Descripcion: item.descripcion,
+      Imagen: item.imagen,
+      Precio: Number(item.precio),
+      Stock: Number(item.stock),
+    };
+
+    this.dataService.deleteArticulo(ItemArticulo.id).subscribe(
+      (result) => {
+        console.log('Eliminado', result);
+      },
+      (error) => console.log('error: ', error)
+    );
+  }
 }

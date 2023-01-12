@@ -41,7 +41,7 @@ export class ServDatosService {
     return this.http.put(apiSettings.URLAPI + apiSettings.CTRARTICULO, httpOptions);
   }
 
-  deleteArticulo(empleado: Articulo ): Observable<any>{
+  deleteArticulo(id: Number ): Observable<any>{
     const httpOptions : any    = {
       headers: new HttpHeaders({
         //'Content-Type':  'application/json',
@@ -51,7 +51,7 @@ export class ServDatosService {
       })
     };
 
-    return this.http.delete(apiSettings.URLAPI + apiSettings.CTRARTICULO,  httpOptions);
+    return this.http.delete(apiSettings.URLAPI + apiSettings.CTRARTICULO+"/"+id,  httpOptions);
   }
   getArticulo(empleado: Articulo ): Observable<any>{
     const httpOptions : any    = {
@@ -75,7 +75,7 @@ export class ServDatosService {
       })
     };
 
-    return this.http.get(apiSettings.URLAPI + apiSettings.CTRARTICULO)
+    return this.http.get(apiSettings.URLAPI + apiSettings.CTRARTICULO, httpOptions)
     .pipe(
       map((data:any)=>{
         return data;
@@ -86,6 +86,7 @@ export class ServDatosService {
       }),
       catchError(error=>{
         return throwError('Capital');
+
       })
 
     );
