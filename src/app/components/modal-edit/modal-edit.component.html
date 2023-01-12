@@ -1,7 +1,7 @@
 
 <div mat-dialog-content>
   <div class="contact-clean">
-    <form (submit)="guardar(form)"   #form="ngForm">
+    <form    #form="ngForm">
         <h2 class="text-center">Modificar Artículos</h2>
         <div class="form-group">
           <label for="CodigoCn" class="form-label mt-4">Codigo CN</label>
@@ -39,7 +39,7 @@
 
 </div>
 <div mat-dialog-actions>
-  <button mat-button class="btn btn-secondary m-2" type="submit">Guardar
+  <button mat-button class="btn btn-secondary m-2" (click)="guardar(form)">Guardar
   </button>
   <button mat-button class="btn btn-primary m-2" (click)="onNoClick()">Cerrar </button>
 </div>

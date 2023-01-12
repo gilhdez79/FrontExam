@@ -1,6 +1,7 @@
 import { Component, OnInit, inject, Inject } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import {MatDialog, MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
+
 import { ArticuloRespose } from 'src/app/models/Articulo';
 @Component({
   selector: 'app-modal-edit',
@@ -18,7 +19,8 @@ export class ModalEditComponent     {
     }
 
     guardar(form:NgForm){
-      console.log(form.value);
+
+      console.log(this.data);
 
     }
 }
