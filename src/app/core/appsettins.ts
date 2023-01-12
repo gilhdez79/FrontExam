@@ -1,5 +1,5 @@
 export  const  apiSettings={
-  "URLAPI":   'http://localhost:8004/api/',
+  "URLAPI":   'https://localhost:44300/api/',
   "CTRARTICULO": 'articulo',
   "CTRTIENDA": 'tienda',
 

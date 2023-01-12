@@ -1,0 +1,48 @@
+
+<div mat-dialog-content>
+  <div class="contact-clean">
+    <form (submit)="guardar(form)"   #form="ngForm">
+        <h2 class="text-center">Modificar Artículos</h2>
+        <div class="form-group">
+          <label for="CodigoCn" class="form-label mt-4">Codigo CN</label>
+
+          <input matInput class="form-control" type="text" name="CodigoCn" [(ngModel)]="data.codigoCn"  placeholder="Codigo CN"/>
+        </div>
+        <div class="form-group">
+          <label for="Descripcion" class="form-label mt-4">Descripcion</label>
+
+          <input class="form-control is-invalid" type="text" name="Descripcion" [(ngModel)]="data.descripcion"  placeholder="Descripcion de l Articulo"/>
+
+        </div>
+        <div class="form-group">
+          <label for="Precio" class="form-label mt-4">Precio</label>
+
+          <input class="form-control is-invalid" type="text" name="Precio" [(ngModel)]="data.precio"  placeholder="Precio"/>
+
+        </div>
+        <div class="form-group">
+          <label for="Imagen" class="form-label mt-4">Imagen</label>
+
+          <input class="form-control is-invalid" type="text" name="Imagen" [(ngModel)]="data.imagen"  placeholder="Url Imagen"/>
+
+        </div>
+        <div class="form-group">
+          <label for="Image" class="form-label mt-4">Stock</label>
+
+          <input class="form-control is-invalid" type="text" name="Stock" [(ngModel)]="data.stock"  placeholder="0"/>
+
+        </div>
+
+    </form>
+  </div>
+
+
+</div>
+<div mat-dialog-actions>
+  <button mat-button class="btn btn-secondary m-2" type="submit">Guardar
+  </button>
+  <button mat-button class="btn btn-primary m-2" (click)="onNoClick()">Cerrar </button>
+</div>
+
+
+

@@ -75,7 +75,7 @@ export class ServDatosService {
       })
     };
 
-    return this.http.get(apiSettings.URLAPI + apiSettings.CTRARTICULO, httpOptions)
+    return this.http.get(apiSettings.URLAPI + apiSettings.CTRARTICULO)
     .pipe(
       map((data:any)=>{
         return data;
