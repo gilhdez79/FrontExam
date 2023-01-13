@@ -10,14 +10,18 @@ import { TiendasComponent } from './components/tiendas/tiendas.component';
 import { ListaArticulosComponent } from './components/lista-articulos/lista-articulos.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog';
+
 import { ModalEditComponent } from './components/modal-edit/modal-edit.component';
+import { AuthService } from './servicios/auth.service';
+import { LoginComponent } from './components/login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
     ArticulosComponent,
     TiendasComponent,
     ListaArticulosComponent,
-    ModalEditComponent
+    ModalEditComponent,
+    LoginComponent
   ],
   imports: [
     FormsModule,
@@ -28,7 +32,7 @@ import { ModalEditComponent } from './components/modal-edit/modal-edit.component
     BrowserAnimationsModule,
     MatDialogModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
