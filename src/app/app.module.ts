@@ -14,6 +14,11 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { ModalEditComponent } from './components/modal-edit/modal-edit.component';
 import { AuthService } from './servicios/auth.service';
 import { LoginComponent } from './components/login/login.component';
+
+const Generales = {
+  header: ['Examen']
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +37,7 @@ import { LoginComponent } from './components/login/login.component';
     BrowserAnimationsModule,
     MatDialogModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, {provide: 'ConstGenerales', useValue: Generales}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

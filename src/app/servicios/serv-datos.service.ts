@@ -25,7 +25,7 @@ export class ServDatosService {
       })
     };
 
-    return this.http.post(apiSettings.URLAPI + apiSettings.CTRARTICULO, JSON.stringify(articulo), httpOptions);
+    return this.http.post(apiSettings.URLAPI + apiSettings.CTRARTICULO, articulo, httpOptions);
   }
 
   putArticulo(empleado: Articulo ): Observable<any>{
@@ -80,13 +80,10 @@ export class ServDatosService {
       map((data:any)=>{
         return data;
         console.log('resultado consulta');
-
         console.log(data);
-
       }),
       catchError(error=>{
         return throwError('Capital');
-
       })
 
     );

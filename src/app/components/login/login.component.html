@@ -3,10 +3,10 @@
 
 
 <div class="contact-clean w-50 p-4 m-auto mt-4">
-  <form method="post">
+  <form (submit)="loggin()"  [formGroup]="loginfrm">
       <h2 class="text-center">Acceso al Sistema</h2>
-      <div class="form-group"><input type="text" class="form-control" name="IdUsuario" placeholder="IdUsuario" /></div>
-      <div class="form-group"><input type="password" class="form-control" name="Password" placeholder="Password" /></div>
+      <div class="form-group"><input type="text" class="form-control" name="IdUser"  formControlName="IdUser" placeholder="IdUser" /></div>
+      <div class="form-group"><input type="password" class="form-control" name="Password" formControlName="Password" placeholder="Password" /></div>
       <div class="form-group"><button class="btn btn-primary" type="submit">Entrar</button></div>
   </form>
 </div>
