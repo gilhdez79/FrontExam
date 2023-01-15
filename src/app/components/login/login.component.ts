@@ -5,6 +5,7 @@ import { AuthService } from 'src/app/servicios/auth.service';
 import { ServDatosService } from 'src/app/servicios/serv-datos.service';
 import { SrvGeneralInfoService } from 'src/app/servicios/srv-general-info.service';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -19,7 +20,8 @@ export class LoginComponent implements OnInit {
     IsLogged: false
   }
   constructor(private fb: FormBuilder, private dataService: AuthService,
-   public srvDatosGral:SrvGeneralInfoService) {}
+   public srvDatosGral:SrvGeneralInfoService,
+   private router: Router) {}
 
   ngOnInit(): void {
     this.loginfrm = this.fb.group({
@@ -28,7 +30,7 @@ export class LoginComponent implements OnInit {
       Password: ['',Validators.required],
 
     });
-    Swal.fire('Thank you...', 'You submitted succesfully!', 'success');
+
   }
   loggin(){
 
@@ -42,8 +44,16 @@ export class LoginComponent implements OnInit {
 
         if (result['objReturn'] !=null){
           this.srvDatosGral.datosUserInfo.IsLogged = true;
+          this.router.navigate(['/lista-articulos']);
+
         }else{
           this.srvDatosGral.datosUserInfo.IsLogged = false;
+          Swal.fire({
+            icon: 'error',
+            title: 'Información',
+            text: 'Usuario o Contraseña Invalida',
+            footer: '<a href="">Why do I have this issue?</a>'
+          });
         }
 
       },
