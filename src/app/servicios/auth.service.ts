@@ -11,7 +11,6 @@ export class AuthService{
 
   constructor(private http:HttpClient) {
 
-
   }
 
   geLogin(datosUser: DatosUser ): Observable<any>{
