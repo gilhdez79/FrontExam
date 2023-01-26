@@ -3,7 +3,6 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 import { Articulo } from 'src/app/models/Articulo';
 import { ServDatosService } from 'src/app/servicios/serv-datos.service';
 
-
 @Component({
   selector: 'app-articulos',
   templateUrl: './articulos.component.html',
@@ -47,8 +46,6 @@ export class ArticulosComponent implements OnInit {
     this.articuloItem.Imagen = this.articulofrm.value.Imagen;
     this.articuloItem.Precio = Number(this.articulofrm.value.Precio);
     this.articuloItem.Stock = Number(this.articulofrm.value.Stock);
-
-
 
     if (this.articulofrm.valid) {
       this.dataService.postArticulo(this.articuloItem).subscribe(
