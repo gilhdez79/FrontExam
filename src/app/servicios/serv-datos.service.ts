@@ -33,25 +33,25 @@ export class ServDatosService {
       headers: new HttpHeaders({
         //'Content-Type':  'application/json',
         'Access-Control-Allow-Headers': 'Content-Type',
-        'Access-Control-Allow-Methods': 'PUT',
+        'Access-Control-Allow-Methods': 'POST',
         'Access-Control-Allow-Origin': '*'
       })
     };
 
-    return this.http.put(apiSettings.URLAPI + apiSettings.CTRARTICULO, httpOptions);
+    return this.http.post(apiSettings.URLAPI + apiSettings.CTRARTICULO+"/UpdateArticulo",empleado, httpOptions);
   }
 
-  deleteArticulo(id: Number ): Observable<any>{
+  deleteArticulo(_id: Number ): Observable<any>{
     const httpOptions : any    = {
       headers: new HttpHeaders({
         //'Content-Type':  'application/json',
         'Access-Control-Allow-Headers': 'Content-Type',
-        'Access-Control-Allow-Methods': 'DELETE',
+        'Access-Control-Allow-Methods': 'POST',
         'Access-Control-Allow-Origin': '*'
       })
     };
 
-    return this.http.delete(apiSettings.URLAPI + apiSettings.CTRARTICULO+"/"+id,  httpOptions);
+    return this.http.post(apiSettings.URLAPI + apiSettings.CTRARTICULO+"/DeleteArticulo",{id:_id},  httpOptions);
   }
   getArticulo(empleado: Articulo ): Observable<any>{
     const httpOptions : any    = {

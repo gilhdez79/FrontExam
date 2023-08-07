@@ -23,6 +23,7 @@
     "bootstrap": "^5.2.3",
     "cors": "^2.8.5",
     "ngx-simple-modal": "^1.4.17",
+    "ngx-toastr": "14.3",
     "oidc-client": "^1.11.5",
     "rxjs": "~7.4.0",
     "sweetalert2": "^11.7.0",

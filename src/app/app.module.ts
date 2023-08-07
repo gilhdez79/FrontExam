@@ -14,7 +14,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { ModalEditComponent } from './components/modal-edit/modal-edit.component';
 import { AuthService } from './servicios/auth.service';
 import { LoginComponent } from './components/login/login.component';
-
+import {ToastrModule} from 'ngx-toastr';
 const Generales = {
   header: ['Examen']
 }
@@ -26,7 +26,8 @@ const Generales = {
     TiendasComponent,
     ListaArticulosComponent,
     ModalEditComponent,
-    LoginComponent
+    LoginComponent,
+
   ],
   imports: [
     FormsModule,
@@ -35,7 +36,8 @@ const Generales = {
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatDialogModule
+    MatDialogModule,
+    ToastrModule.forRoot(),
   ],
   providers: [AuthService, {provide: 'ConstGenerales', useValue: Generales}],
   bootstrap: [AppComponent]

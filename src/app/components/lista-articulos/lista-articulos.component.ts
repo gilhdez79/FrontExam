@@ -4,7 +4,8 @@ import { ServDatosService } from 'src/app/servicios/serv-datos.service';
 import {of, from, map, tap, take} from 'rxjs';
 import {MatDialog,MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import { ModalEditComponent } from '../modal-edit/modal-edit.component';
-
+import { CommonService, toastPayload } from 'src/app/servicios/common.service';
+import { IndividualConfig } from 'ngx-toastr';
 @Component({
   selector: 'app-lista-articulos',
   templateUrl: './lista-articulos.component.html',
@@ -13,7 +14,12 @@ import { ModalEditComponent } from '../modal-edit/modal-edit.component';
 export class ListaArticulosComponent implements OnInit {
   articuloSelec: Articulo | undefined;
   listArticulos: ArticuloRespose[]= [];
-  constructor(private dataService: ServDatosService,public dialog: MatDialog) { }
+  title ='Mensaje';
+  toast!: toastPayload;
+
+  constructor(private dataService: ServDatosService,
+    public dialog: MatDialog,
+     private cs: CommonService) { }
 
   ngOnInit(): void {
     this.obtenerListaArticulos();
@@ -33,6 +39,7 @@ export class ListaArticulosComponent implements OnInit {
   }
 
   openDialog(item:ArticuloRespose): void {
+
     const dialogRef = this.dialog.open(ModalEditComponent, {
       data: item,
       height: '600px',
@@ -59,8 +66,32 @@ export class ListaArticulosComponent implements OnInit {
     this.dataService.deleteArticulo(ItemArticulo.id).subscribe(
       (result) => {
         console.log('Eliminado', result);
+
+        this.toast={
+          message: 'Articulo eliminado',
+          title:'Titulo',
+          type: 'success',
+          ic:{
+            timeOut: 2500,
+            closeButton: true,
+          } as  IndividualConfig,
+        };
+
+        this.cs.showToast(this.toast);
       },
-      (error) => console.log('error: ', error)
+      (error) => {
+        this.toast={
+          message: 'Hubo un error ',
+          title:'Titulo',
+          type: 'success',
+          ic:{
+            timeOut: 2500,
+            closeButton: true,
+          } as  IndividualConfig,
+        };
+
+        this.cs.showToast(this.toast);
+      }
     );
   }
 }
